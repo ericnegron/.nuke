@@ -1,6 +1,6 @@
 # -----------------------------------------------------------------
 #  menu.py
-#  Version: 1.0.1
+#  Version: 1.0.2
 #  Last Updated: August 29, 2023
 # -----------------------------------------------------------------
 
@@ -28,7 +28,7 @@ elif platform.system() == "Linux":
 else:
     dir = None
     
-        
+         
 # -----------------------------------------------------------------
 #  KNOB DEFAULTS  :::::::::::::::::::::::::::::::::::::::::::::::::
 # -----------------------------------------------------------------
@@ -44,11 +44,29 @@ nuke.knobDefault('MotionBlur3D.shutteroffset', "centered")
 nuke.knobDefault('ScanlineRender.shutteroffset', "centered")
 nuke.knobDefault('Card3D.shutteroffset', "centered")
 
-
+# Tracker Defaults
 nuke.knobDefault('Tracker4.label', "Motion: [value transform]\nRef Frame: [value reference_frame]")
 nuke.addOnUserCreate(lambda:nuke.thisNode()['reference_frame'].setValue(nuke.frame()), nodeClass='Tracker4')
 
+# Frame Hold Default
 nuke.addOnUserCreate(lambda:nuke.thisNode()['first_frame'].setValue(nuke.frame()), nodeClass="FrameHold")
+
+
+# -----------------------------------------------------------------
+#  CUSTOM KEYBOARD SHORTCUTS ::::::::::::::::::::::::::::::::::::::
+# -----------------------------------------------------------------
+
+# Tracker Shortcut
+nuke.menu('Nodes').addCommand("Transform/Tracker", "nuke.createNode('Tracker4')", "ctrl+alt+t", icon="Tracker.png", shortcutContext=2)
+
+
+# Merge Node Shortcuts
+mergeMenu = nuke.menu('Nodes').findItem("Merge/Merges")
+mergeMenu.addCommand('Stencil', 'nuke.createNode("Merge2", "operation stencil bbox B")', "alt+o", icon="Out.png", shortcutContext=2)
+mergeMenu.addCommand('Mask', 'nuke.createNode("Merge2", "operation mask bbox A")', "alt+i", icon="In.png", shortcutContext=2)
+mergeMenu.addCommand('Plus', 'nuke.createNode("Merge2", "operation plus")', "alt+]", icon="Add.png", shortcutContext=2)
+mergeMenu.addCommand('From', 'nuke.createNode("Merge2", "operation from")', "alt+[", icon="From.png", shortcutContext=2)
+
 
 # -----------------------------------------------------------------
 #  CUSTOM MENUS :::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -58,11 +76,4 @@ utlitiesMenu = nuke.menu('Nuke').addMenu('Utilities')
 utlitiesMenu.addCommand('Autocrop', 'nukescripts.autocrop()')
 
 customGizmosMenu = nuke.menu('Nodes').addMenu('CustomGizmos', icon="myGizmos_icon.png")
-customGizmosMenu.addCommand('Breakdownerizationer', 'nuke.createNode("Breakdownerizationer")')
-
-
-# -----------------------------------------------------------------
-#  CUSTOM KEYBOARD SHORTCUTS ::::::::::::::::::::::::::::::::::::::
-# -----------------------------------------------------------------
-
-nuke.menu('Nodes').addCommand("Transform/Tracker", "nuke.createNode('Tracker4')", "ctrl+alt+t", icon="Tracker.png", shortcutContext=2)
+customGizmosMenu.addCommand('Breakdownerizationer', 'nuk e.createNode("Breakdownerizationer")')
