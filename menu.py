@@ -1,6 +1,6 @@
 # -----------------------------------------------------------------
 #  menu.py
-#  Version: 1.0.4
+#  Version: 1.0.5
 #  Last Updated: September 2, 2023
 # -----------------------------------------------------------------
 
@@ -12,7 +12,7 @@
 import nuke
 import platform
 import nukescripts
-import NukeServerSocket
+from NukeTools import NukeServerSocket
 
 # Define .nuke directory path
 MacOSX_Dir = '/Users/ericnegron/.nuke'
@@ -84,5 +84,5 @@ utlitiesMenu = nuke.menu('Nuke').addMenu('Utilities')
 utlitiesMenu.addCommand('Autocrop', 'nukescripts.autocrop()')
 
 customGizmosMenu = nuke.menu('Nodes').addMenu('CustomGizmos', icon="myGizmos_icon.png")
-customGizmosMenu.addCommand('Breakdownerizationer', 'nuk e.createNode("Breakdownerizationer")')
-from NukeTools import NukeServerSocket
+customGizmosMenu.addCommand('Breakdownerizationer', 'nuke.createNode("Breakdownerizationer")')
+
