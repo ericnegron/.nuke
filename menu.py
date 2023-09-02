@@ -1,7 +1,7 @@
 # -----------------------------------------------------------------
 #  menu.py
-#  Version: 1.0.2
-#  Last Updated: August 29, 2023
+#  Version: 1.0.4
+#  Last Updated: September 2, 2023
 # -----------------------------------------------------------------
 
 
@@ -12,6 +12,7 @@
 import nuke
 import platform
 import nukescripts
+import NukeServerSocket
 
 # Define .nuke directory path
 MacOSX_Dir = '/Users/ericnegron/.nuke'
@@ -68,6 +69,13 @@ mergeMenu.addCommand('Plus', 'nuke.createNode("Merge2", "operation plus")', "alt
 mergeMenu.addCommand('From', 'nuke.createNode("Merge2", "operation from")', "alt+[", icon="From.png", shortcutContext=2)
 
 
+
+# -----------------------------------------------------------------
+#  CUSTOM PYTHON SCRIPTS     ::::::::::::::::::::::::::::::::::::::
+# -----------------------------------------------------------------
+import shuffleShortcuts
+
+
 # -----------------------------------------------------------------
 #  CUSTOM MENUS :::::::::::::::::::::::::::::::::::::::::::::::::::
 # -----------------------------------------------------------------
@@ -77,3 +85,4 @@ utlitiesMenu.addCommand('Autocrop', 'nukescripts.autocrop()')
 
 customGizmosMenu = nuke.menu('Nodes').addMenu('CustomGizmos', icon="myGizmos_icon.png")
 customGizmosMenu.addCommand('Breakdownerizationer', 'nuk e.createNode("Breakdownerizationer")')
+from NukeTools import NukeServerSocket
