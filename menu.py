@@ -1,7 +1,7 @@
 # -----------------------------------------------------------------
 #  menu.py
-#  Version: 1.0.6
-#  Last Updated: September 5, 2023
+#  Version: 1.0.7
+#  Last Updated: September 6, 2023
 # -----------------------------------------------------------------
 
 
@@ -69,7 +69,7 @@ mergeMenu.addCommand('Plus', 'nuke.createNode("Merge2", "operation plus")', "alt
 mergeMenu.addCommand('From', 'nuke.createNode("Merge2", "operation from")', "alt+[", icon="From.png", shortcutContext=2)
 
 # Paste Selected Shortcut
-nuke.menu('Edit/Paste to Selected', 'pasteSelectedNodes.paste_selected()', 'ctrl+shift+v')
+nuke.menu('Nuke').addCommand('Edit/Paste to Selected', 'pasteSelectedNodes.paste_selected()', 'ctrl+shift+v')
 
 
 
@@ -84,9 +84,9 @@ import pasteSelectedNodes
 #  CUSTOM MENUS :::::::::::::::::::::::::::::::::::::::::::::::::::
 # -----------------------------------------------------------------
 
-utlitiesMenu = nuke.menu('Nuke').addMenu('Utilities')
-utlitiesMenu.addCommand('Autocrop', 'nukescripts.autocrop()')
-utlitiesMenu.addCommand('List Files', 'filepathLister.list_files()')
+utilitiesMenu = nuke.menu('Nuke').addMenu('Utilities')
+utilitiesMenu.addCommand('Autocrop', 'nukescripts.autocrop()')
+utilitiesMenu.addCommand('List Files', 'filepathLister.list_files()')
 
 customGizmosMenu = nuke.menu('Nodes').addMenu('CustomGizmos', icon="myGizmos_icon.png")
 customGizmosMenu.addCommand('Breakdownerizationer', 'nuke.createNode("Breakdownerizationer")')
