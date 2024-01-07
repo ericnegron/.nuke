@@ -1,7 +1,7 @@
 # -----------------------------------------------------------------
 #  menu.py
-#  Version: 1.0.7
-#  Last Updated: September 6, 2023
+#  Version: 1.0.9
+#  Last Updated: January 07, 2024
 # -----------------------------------------------------------------
 
 
@@ -48,9 +48,23 @@ nuke.knobDefault('Card3D.shutteroffset', "centered")
 # Tracker Defaults
 nuke.knobDefault('Tracker4.label', "Motion: [value transform]\nRef Frame: [value reference_frame]")
 nuke.addOnUserCreate(lambda:nuke.thisNode()['reference_frame'].setValue(nuke.frame()), nodeClass='Tracker4')
+nuke.knobDefault("Tracker.adjust_for_luminance_changes", "1")
 
 # Frame Hold Default
 nuke.addOnUserCreate(lambda:nuke.thisNode()['first_frame'].setValue(nuke.frame()), nodeClass="FrameHold")
+
+# Backdrop Defaults
+nuke.knobDefault("BackdropNode.appearance", "Border")
+
+# Write Defaults
+nuke.knobDefault("Write.create_directories", "1")
+
+# Roto Defaults
+nuke.knobDefault("Roto.cliptype", "no clip")
+nuke.knobDefault("RotoPaint.cliptype", "no clip")
+
+# Root Defaults
+nuke.knobDefault("Root.colorManagement", "OCIO")
 
 
 # -----------------------------------------------------------------
@@ -79,6 +93,7 @@ nuke.menu('Nuke').addCommand('Edit/Paste to Selected', 'pasteSelectedNodes.paste
 import shuffleShortcuts
 import filepathLister
 import pasteSelectedNodes
+import shortcut_NodeComment
 
 # -----------------------------------------------------------------
 #  CUSTOM MENUS :::::::::::::::::::::::::::::::::::::::::::::::::::
