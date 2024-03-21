@@ -1,7 +1,7 @@
 # -----------------------------------------------------------------
 #  menu.py
-#  Version: 1.0.9
-#  Last Updated: January 07, 2024
+#  Version: 1.0.10
+#  Last Updated: March 21, 2024
 # -----------------------------------------------------------------
 
 
@@ -106,3 +106,7 @@ utilitiesMenu.addCommand('List Files', 'filepathLister.list_files()')
 customGizmosMenu = nuke.menu('Nodes').addMenu('CustomGizmos', icon="myGizmos_icon.png")
 customGizmosMenu.addCommand('Breakdownerizationer', 'nuke.createNode("Breakdownerizationer")')
 
+
+toolbar = nuke.toolbar('Nodes')
+m = toolbar.addMenu('DamianBinder', icon='DamianBinderNukeLogo.png')
+m.addCommand('HeatWave', 'nuke.createNode(\'HeatWave\')', icon='HeatWave_Icon.png')
