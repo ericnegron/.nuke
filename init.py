@@ -1,7 +1,7 @@
 # -----------------------------------------------------------------
 #  init.py
-#  Version: 1.0.2
-#  Last Updated: August 29, 2023
+#  Version: 1.0.3
+#  Last Updated: March 21, 2024
 # -----------------------------------------------------------------
 
 
@@ -16,3 +16,5 @@ nuke.pluginAddPath('./NukeServerSocket')
 nuke.pluginAddPath('./RBL_Gizmopack')
 nuke.pluginAddPath('./Rebelway Gizmo Pack nk13')
 
+# Heatwave Gizmo
+nuke.pluginAddPath('./Heatwave_V4.0/Damian_Binder/Heatwave')
