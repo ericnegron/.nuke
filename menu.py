@@ -1,6 +1,6 @@
 # -----------------------------------------------------------------
 #  menu.py
-#  Version: 1.0.10
+#  Version: 1.0.11
 #  Last Updated: March 21, 2024
 # -----------------------------------------------------------------
 
@@ -12,10 +12,10 @@
 import nuke
 import platform
 import nukescripts
-from NukeTools import NukeServerSocket
+
 
 # Define .nuke directory path
-MacOSX_Dir = '/Users/ericnegron/.nuke'
+MacOSX_Dir = ''
 Linux_Dir = ''
 Win_Dir = ''
 
@@ -93,7 +93,8 @@ nuke.menu('Nuke').addCommand('Edit/Paste to Selected', 'pasteSelectedNodes.paste
 import shuffleShortcuts
 import filepathLister
 import pasteSelectedNodes
-import shortcut_NodeComment
+#import shortcut_NodeComment
+import shortcut_NodeCustomizer
 
 # -----------------------------------------------------------------
 #  CUSTOM MENUS :::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -110,3 +111,5 @@ customGizmosMenu.addCommand('Breakdownerizationer', 'nuke.createNode("Breakdowne
 toolbar = nuke.toolbar('Nodes')
 m = toolbar.addMenu('DamianBinder', icon='DamianBinderNukeLogo.png')
 m.addCommand('HeatWave', 'nuke.createNode(\'HeatWave\')', icon='HeatWave_Icon.png')
+from NukeTools.nukeserversocket import nukeserversocket
+nukeserversocket.install_nuke()
