@@ -1,7 +1,7 @@
 # -----------------------------------------------------------------
 #  init.py
 #  Version: 1.0.3
-#  Last Updated: March 21, 2024
+#  Last Updated: June 4, 2024
 # -----------------------------------------------------------------
 
 
@@ -18,3 +18,6 @@ nuke.pluginAddPath('./Rebelway Gizmo Pack nk13')
 
 # Heatwave Gizmo
 nuke.pluginAddPath('./Heatwave_V4.0/Damian_Binder/Heatwave')
+
+# Nuke Survival Toolkit
+nuke.pluginAddPath("./NukeSurvivalToolkit")
