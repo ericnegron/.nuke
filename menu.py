@@ -1,7 +1,7 @@
 # -----------------------------------------------------------------
 #  menu.py
-#  Version: 1.0.11
-#  Last Updated: March 21, 2024
+#  Version: 1.0.12
+#  Last Updated: July 1, 2024
 # -----------------------------------------------------------------
 
 
@@ -12,6 +12,8 @@
 import nuke
 import platform
 import nukescripts
+import sys
+import os
 
 
 # Define .nuke directory path
@@ -28,6 +30,12 @@ elif platform.system() == "Linux":
     dir = Linux_Dir
 else:
     dir = None
+
+
+# Append virtual environment path to sys.path
+venv_path = '/path/to/.pyenv/versions/nuke_env/lib/python3.10/site-packages'
+if venv_path not in sys.path:
+    sys.path.append(venv_path)
     
          
 # -----------------------------------------------------------------
